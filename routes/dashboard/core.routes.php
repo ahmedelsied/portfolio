@@ -13,7 +13,6 @@ route_group('core', function () {
     });
 
     Route::resources([
-        'pages'             => 'PageController',
-        'contact-messages'  => 'ContactMessageController',
+        'pages'             => 'PageController'
     ]);
 });

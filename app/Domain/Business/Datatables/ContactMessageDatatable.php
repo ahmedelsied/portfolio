@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Domain\Core\Datatables;
+namespace App\Domain\Business\Datatables;
 
-use App\Domain\Core\Models\ContactMessage;
+use App\Domain\Business\Models\ContactMessage;
 use App\Support\Datatables\BaseDatatable;
 use Illuminate\Database\Eloquent\Builder;
-use Yajra\DataTables\Html\Column;
 
 class ContactMessageDatatable extends BaseDatatable
 {

@@ -9,6 +9,31 @@ use function route;
 
 class Sidebar
 {
+
+    private function business()
+    {
+        return [
+            SidebarLink::to(
+                __('Clients'),
+                route('dashboard.business.clients.index'),
+                '',
+                'icon-copy'
+            ),
+            SidebarLink::to(
+                __('Testimonials'),
+                route('dashboard.business.testimonials.index'),
+                '',
+                'icon-copy'
+            ),
+            SidebarLink::to(
+                __('Contact Messages'),
+                route('dashboard.business.contact-messages.index'),
+                '',
+                'icon-copy'
+            )
+        ];
+    }
+
     private function core()
     {
         $adminList = [
@@ -20,12 +45,6 @@ class Sidebar
             SidebarMenu::create(__('Administration'), 'icon-lock', 'administration')
                        ->push($adminList),
 
-                SidebarLink::to(
-                __('Contact Messages'),
-                route('dashboard.core.contact-messages.index'),
-                'pages',
-                'icon-copy'
-            ),
             SidebarLink::to(
                 __('Static Pages'),
                 route('dashboard.core.pages.index'),
@@ -119,6 +138,7 @@ class Sidebar
     public function __invoke()
     {
         $generator = SidebarGenerator::create();
+        $generator->addModule(__('Business'), 'icon-home')->push($this->business());
         $generator->addModule(__('Personal'), 'icon-home')->push($this->personal());
         $generator->addModule(__('Portfolio'), 'icon-home')->push($this->portfolio());
         $generator->addModule(__('Blog'), 'icon-home')->push($this->blog());

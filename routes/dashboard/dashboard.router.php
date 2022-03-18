@@ -16,5 +16,6 @@ Route::group(['prefix' => config('custom.dashboard.prefix'), 'as' => 'dashboard.
         require __DIR__.'/blog.routes.php';
         require __DIR__.'/portfolio.routes.php';
         require __DIR__.'/personal.routes.php';
+        require __DIR__.'/business.routes.php';
     });
 });
