@@ -1,0 +1,64 @@
+* {
+    font-family: "Cairo", tahoma, sans-serif;
+}
+
+.custom-image-file {
+    border: #cccbcb dashed 2px;
+    cursor: pointer;
+    padding: 1px;
+    width: 156px;
+    background: #ffff;
+    height: 156px;
+    text-align: center;
+}
+
+.custom-image-file-preview {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.custom-image-file-preview img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.image-file-controller {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.custom-image-file-preview .btn {
+    position: absolute;
+    top: 55px;
+    left: 60px;
+    color: white;
+}
+
+.span-color{
+    width: 35px;
+    height: 35px;
+    display: block;
+    border-radius: 50%;
+}
+
+/* icon */
+.icon {
+    font-size: 25px;
+  }
+
+  .icon-bg {
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+  }
+
+  .icon-light {
+    color: #c8d5ef;
+  }
