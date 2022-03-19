@@ -47,11 +47,6 @@
 @push('scripts')
     <script
         src="{{ asset('admin/global_assets/js/plugins/forms/selects/select2.min.js') }}"></script>
-    <script>
 
-        $(document).ready(function () {
-            $('.select2').select2()
-        });
-    </script>
     {{ $footer ?? '' }}
 @endpush

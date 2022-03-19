@@ -9,9 +9,9 @@ use App\Support\Core\Crud\WithDestroy;
 use App\Support\Core\Crud\WithForm;
 use App\Support\Core\Crud\WithStore;
 use App\Support\Core\Crud\WithUpdate;
-use Illuminate\Database\Eloquent\Model;
 use App\Domain\Personal\Datatables\ServiceDatatable;
 use App\Domain\Personal\Models\Service;
+use DB;
 
 class ServiceController extends Controller
 {
@@ -36,7 +36,7 @@ class ServiceController extends Controller
     protected function formData(): array
     {
         return [
-            'icons'    =>  Icon::all(),
+            'icons'    =>  Icon::chunkIcons()
         ];
     }
 }
