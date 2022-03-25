@@ -20,6 +20,8 @@ class ClientController extends Controller
 
     protected string $datatable = ClientDatatable::class;
 
+    protected string $cacheKey = 'clients';
+
     protected string $model = Client::class;
 
 

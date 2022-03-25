@@ -15,4 +15,9 @@ route_group('core', function () {
     Route::resources([
         'pages'             => 'PageController'
     ]);
+
+    Route::group(['prefix' => 'settings'],function(){
+        Route::get('/', 'SettingController@index')->name('settings.index');
+        Route::put('/','SettingController@update')->name('settings.update');
+    });
 });

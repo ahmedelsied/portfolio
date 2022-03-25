@@ -17,6 +17,8 @@ class ExperienceController extends Controller
 
     protected string $path = 'dashboard.personal.experiences';
 
+    protected string $cacheKey = 'experiences';
+
     protected string $datatable = ExperienceDatatable::class;
 
     protected string $model = Experience::class;

@@ -3,7 +3,7 @@
     $invalidClass =$errors->has(dotted_string($name)) ? 'is-invalid' : '';
     $splitAttributes = explode(' ',$attributes);
     $properties = [
-    'class'=>"{$invalidClass} custom-control-input {$class}" ,
+    'class'=>"{$invalidClass} custom-control-input" ,
     ...$splitAttributes,
     'id'=>'toggle_'.dotted_string($name)
     ];

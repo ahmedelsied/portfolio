@@ -20,6 +20,8 @@ class TeamMemberController extends Controller
 
     protected string $datatable = TeamMemberDatatable::class;
 
+    protected string $cacheKey = 'team_members';
+
     protected string $model = TeamMember::class;
 
 

@@ -7,7 +7,6 @@ use App\Support\Core\Crud\WithDestroy;
 use App\Support\Core\Crud\WithForm;
 use App\Support\Core\Crud\WithStore;
 use App\Support\Core\Crud\WithUpdate;
-use Illuminate\Database\Eloquent\Model;
 use App\Domain\Personal\Datatables\SkillDatatable;
 use App\Domain\Personal\Models\Skill;
 
@@ -16,6 +15,8 @@ class SkillController extends Controller
     use WithDatatable, WithForm, WithStore, WithUpdate, WithDestroy;
 
     protected string $path = 'dashboard.personal.skills';
+
+    protected string $cacheKey = 'skills';
 
     protected string $datatable = SkillDatatable::class;
 

@@ -50,7 +50,13 @@ class Sidebar
                 route('dashboard.core.pages.index'),
                 'pages',
                 'icon-copy'
-            ),
+                ),
+            SidebarLink::to(
+                __('Settings'),
+                route('dashboard.core.settings.index'),
+                'pages',
+                'icon-copy'
+                ),
         ];
     }
 

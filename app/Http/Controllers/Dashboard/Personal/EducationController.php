@@ -17,6 +17,8 @@ class EducationController extends Controller
 
     protected string $path = 'dashboard.personal.education';
 
+    protected string $cacheKey = 'education';
+
     protected string $datatable = EducationDatatable::class;
 
     protected string $model = Education::class;

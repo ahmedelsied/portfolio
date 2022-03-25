@@ -20,6 +20,8 @@ class TestimonialController extends Controller
 
     protected string $datatable = TestimonialDatatable::class;
 
+    protected string $cacheKey = 'testimonials';
+
     protected string $model = Testimonial::class;
 
 
@@ -32,7 +34,7 @@ class TestimonialController extends Controller
             'client_image'      => 'required|image|max:2000',
         ];
 
-        if(request()->isMethod('put')) $rules['image'] = 'nullable|image|max:2000';
+        if(request()->isMethod('put')) $rules['client_image'] = 'nullable|image|max:2000';
 
         return $rules;
     }

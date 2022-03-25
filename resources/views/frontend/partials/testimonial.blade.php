@@ -1,4 +1,4 @@
-
+@if(!$testimonials->isEmpty() && $sectionsSettings->testimonials)
 <!-- testimonial -->
 <section class="section bg-primary position-relative testimonial-bg-shapes">
     <div class="container">
@@ -8,45 +8,15 @@
         </div>
         <div class="col-lg-10 mx-auto testimonial-slider">
           <!-- slider-item -->
-          <div class="text-center testimonial-content">
-            <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-            <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit
-              in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ asset('frontend/images/testimonial/client-1.png') }}"
-              alt="client-image">
-            <h4 class="text-white">Jesica Gomez</h4>
-            <h6 class="text-light mb-4">CEO, Funder</h6>
-          </div>
-          <!-- slider-item -->
-          <div class="text-center testimonial-content">
-            <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-            <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-                ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-              voluptate velit
-              esse cillum dolore eu fugiat nulla pariatur.</p>
-            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ asset('frontend/images/testimonial/client-1.png') }}"
-              alt="client-image">
-            <h4 class="text-white">Jesica Gomez</h4>
-            <h6 class="text-light mb-4">CEO, Funder</h6>
-          </div>
-          <!-- slider-item -->
-          <div class="text-center testimonial-content">
-            <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-            <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-                ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-              voluptate velit
-              esse cillum dolore eu fugiat nulla pariatur.</p>
-            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ asset('frontend/images/testimonial/client-1.png') }}"
-              alt="client-image">
-            <h4 class="text-white">Jesica Gomez</h4>
-            <h6 class="text-light mb-4">CEO, Funder</h6>
-          </div>
+          @foreach ($testimonials as $testimonial)
+            <div class="text-center testimonial-content">
+                <p class="text-white mb-4">{{ $testimonial->review }}</p>
+                <img width="150" class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ $testimonial->getFirstMediaUrl('client_image','optimized') }}"
+                    alt="{{ $testimonial->client_name }}" loading="lazy">
+                <h4 class="text-white">{{ $testimonial->client_name }}</h4>
+                <h6 class="text-light mb-4">{{ $testimonial->client_position }}</h6>
+            </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -59,3 +29,4 @@
     <img src="{{ asset('frontend/images/illustrations/leaf-cyan.png') }}" alt="bg-shape" class="img-fluid bg-shape-5">
   </section>
   <!-- /testimonial -->
+@endif

@@ -29,7 +29,7 @@ class WorkProcessDatatable extends BaseDatatable
     {
         return [
             'image' => function ($model) {
-                return '<img width="200" src="'.$model->getFirstMediaUrl('work_process.image').'" alt="'.$model->title.'"/>';
+                return '<img width="150" src="'.$model->getFirstMediaUrl('work_process.image').'" alt="'.$model->title.'"/>';
             }
         ];
     }

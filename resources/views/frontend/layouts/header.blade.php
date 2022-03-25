@@ -13,16 +13,18 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">about</a>
+            <a class="nav-link" href="{{ route('about') }}">about</a>
           </li>
+          @if($sectionsSettings->blog)
           <li class="nav-item">
             <a class="nav-link" href="blog.html">Blog</a>
           </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="portfolio.html">Portfolio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="{{ route('contact') }}">Contact</a>
           </li>
         </ul>
       </div>

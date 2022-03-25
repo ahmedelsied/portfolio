@@ -21,6 +21,8 @@ class BlogController extends Controller
 
     protected string $path = 'dashboard.blog.blog';
 
+    protected string $cacheKey = 'posts';
+
     protected string $datatable = BlogDatatable::class;
 
     protected string $model = Blog::class;
@@ -28,7 +30,8 @@ class BlogController extends Controller
     protected function rules()
     {
         $rules = [
-            'title'          =>  'required|string|max:100',
+            'title'         =>  'required|string|max:100',
+            'description'   =>  'required|string|max:200',
             'image'         =>  'required|image|max:2000',
             'category_id'   =>  'required|exists:blog_categories,id',
             'body'          =>  'required',

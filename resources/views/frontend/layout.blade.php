@@ -15,7 +15,7 @@
   <meta name="author" content="Themefisher">
   <meta name="generator" content="Themefisher Kross Template v1.0">
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png') }}" />
+  <link rel="shortcut icon" type="image/x-png" href="{{ asset('frontend/images/favicon.png') }}" />
 
   @include('frontend.layouts.styles')
 

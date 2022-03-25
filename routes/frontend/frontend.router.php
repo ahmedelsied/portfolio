@@ -14,3 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'PageController@about')->name('about');
+Route::group(['prefix' => 'contact'],function(){
+    Route::get('/', 'ContactController@index')->name('contact');
+    Route::post('/', 'ContactController@contact')->name('contact');
+});

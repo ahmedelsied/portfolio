@@ -30,7 +30,7 @@ class TestimonialDatatable extends BaseDatatable
     {
         return [
             'image' => function ($model) {
-                return '<img width="200" src="'.$model->getFirstMediaUrl('client_image').'" alt="'.$model->client_name.'"/>';
+                return '<img width="200" src="'.$model->getFirstMediaUrl('client_image','optimized').'" alt="'.$model->client_name.'"/>';
             }
         ];
     }

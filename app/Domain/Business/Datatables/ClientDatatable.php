@@ -18,7 +18,7 @@ class ClientDatatable extends BaseDatatable
         return [
             $this->column('id',__('ID')),
             $this->column('name',__('Name')),
-            $this->column('client_logo',__('Client Image')),
+            $this->column('client_logo',__('Client Logo')),
             $this->column('link',__('Link'))
         ];
     }
@@ -28,7 +28,7 @@ class ClientDatatable extends BaseDatatable
     {
         return [
             'client_logo' => function ($model) {
-                return '<img width="200" src="'.$model->getFirstMediaUrl('client_logo').'" alt="'.$model->name.'"/>';
+                return '<img width="200" src="'.$model->getFirstMediaUrl('client_logo','optimized').'" alt="'.$model->name.'"/>';
             },
             'link'  =>  function($model){
                 return '<a href="'.$model->link.'" target="_blank">'.__('Link').'</a>';

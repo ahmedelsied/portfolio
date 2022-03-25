@@ -21,6 +21,8 @@ class ServiceController extends Controller
 
     protected string $datatable = ServiceDatatable::class;
 
+    protected string $cacheKey = 'services';
+
     protected string $model = Service::class;
 
 

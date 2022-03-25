@@ -20,6 +20,8 @@ class WorkProcessController extends Controller
 
     protected string $datatable = WorkProcessDatatable::class;
 
+    protected string $cacheKey = 'work_processes';
+
     protected string $model = WorkProcess::class;
 
 

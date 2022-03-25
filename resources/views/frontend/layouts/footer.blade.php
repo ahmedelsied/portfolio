@@ -6,16 +6,20 @@
         <div class="row">
           <div class="col-md-4">
             <h5 class="text-light">Email</h5>
-            <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
+            <p class="text-white paragraph-lg font-secondary"><a href="mailto:{{ $contactInfoSettings->email }}">{{ $contactInfoSettings->email }}</a></p>
           </div>
+          @if(!is_null($contactInfoSettings->phone))
           <div class="col-md-4">
             <h5 class="text-light">Phone</h5>
-            <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
+            <p class="text-white paragraph-lg font-secondary"><a href="tel:{{ $contactInfoSettings->phone }}">{{ $contactInfoSettings->phone }}</a></p>
           </div>
+          @endif
+          @if(!is_null($contactInfoSettings->address))
           <div class="col-md-4">
             <h5 class="text-light">Address</h5>
-            <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
+            <p class="text-white paragraph-lg font-secondary">{{ $contactInfoSettings->address }}</p>
           </div>
+          @endif
         </div>
       </div>
     </div>

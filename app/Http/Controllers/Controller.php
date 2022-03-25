@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -31,8 +32,16 @@ class Controller extends BaseController
 
     public function successfulRequest(
         ?string $route = null,
-        bool $asJson = false
+        bool $asJson = false,
     ): RedirectResponse|JsonResponse {
+        if(property_exists($this,'cacheKey')){
+            Cache::forget($this->cacheKey);
+            Cache::forever($this->cacheKey,($this->model)::cacheData());
+        }
+        if(! is_null(session('img-path'))){
+            unlink(session('img-path'));
+            session()->forget('img-path');
+        }
         if ($asJson) {
             return response()->json([
                 'status'  => true,

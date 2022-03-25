@@ -21,6 +21,8 @@ class WorkController extends Controller
 
     protected string $datatable = WorkDatatable::class;
 
+    protected string $cacheKey = 'work';
+
     protected string $model = Work::class;
 
 

@@ -29,7 +29,7 @@ class TeamMemberDatatable extends BaseDatatable
     {
         return [
             'avatar' => function ($model) {
-                return '<img width="200" src="'.$model->getFirstMediaUrl('team.avatar').'" alt="'.$model->name.'"/>';
+                return '<img width="200" src="'.$model->getFirstMediaUrl('team.avatar','optimized').'" alt="'.$model->name.'"/>';
             }
         ];
     }
