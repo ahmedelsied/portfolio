@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Domain\Core\Settings\ContactInfoSettings;
+use App\Domain\Core\Settings\GeneralSettings;
 use App\Domain\Core\Settings\SectionsSettings;
+use App\Domain\Core\Settings\SEOSettings;
 use App\Domain\Core\Settings\SocialSettings;
 use App\Support\Sidebar\Sidebar;
 use Illuminate\Support\Facades\View;
@@ -53,7 +55,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with(['current' => $lang[$locale]]);
         });
         View::composer(['frontend.*'], function (\Illuminate\View\View $view) {
-            $view->with('sectionsSettings',app(SectionsSettings::class));
+            $view->with([
+                'sectionsSettings'=>app(SectionsSettings::class),
+                'generalSettings'=>app(GeneralSettings::class),
+                'seoSettings'=>app(SEOSettings::class),
+            ]);
         });
         View::composer(['frontend.layouts.footer'], function (\Illuminate\View\View $view) {
             $view->with('contactInfoSettings',app(ContactInfoSettings::class));

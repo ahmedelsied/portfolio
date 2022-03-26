@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\IsBlogActive;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'PageController@about')->name('about');
+Route::get('/portfolio', 'PortfolioController')->name('portfolio');
 Route::group(['prefix' => 'contact'],function(){
     Route::get('/', 'ContactController@index')->name('contact');
     Route::post('/', 'ContactController@contact')->name('contact');
+});
+Route::group(['prefix' => 'blog','middleware' => IsBlogActive::class],function(){
+    Route::get('/','BlogController@index')->name('blog');
+    Route::get('/{blog}/show','BlogController@show')->name('blog.show');
 });

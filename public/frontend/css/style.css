@@ -1,30 +1,6 @@
-/**
- * WEBSITE: https://themefisher.com
- * TWITTER: https://twitter.com/themefisher
- * FACEBOOK: https://www.facebook.com/themefisher
- * GITHUB: https://github.com/themefisher/
- */
-
-/*!
-THEME: Kross - Creative Portfolio Template
-VERSION: 1.0.0
-AUTHOR: Themefisher
-
-HOMEPAGE: https://themefisher.com/products/kross-creative-portfolio-template/
-DEMO: https://demo.themefisher.com/kross/
-GITHUB: https://github.com/themefisher/meghna-onepage-html5-business-template
-
-Get HUGO Version : https://gethugothemes.com/products/kross-hugo-theme/
-
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
-*/
-/*  typography */
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto:400");
 body {
   line-height: 1.2;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
   color: #4c4c4c;
@@ -35,7 +11,7 @@ p, .paragraph {
   color: #4c4c4c;
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }
 p-lg, .paragraph-lg {
   font-size: 22px;
@@ -43,10 +19,21 @@ p-lg, .paragraph-lg {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Playfair Display", serif;
+  font-family: 'Titillium Web', sans-serif;
   line-height: 1.2;
 }
-
+ul.pagination{
+    justify-content: center;
+}
+.page-item.active .page-link{
+    z-index: 1;
+    color: #fff;
+    background-color: #41228e;
+    border-color: #41228e;
+}
+.page-link,.page-link:hover{
+    color: #41228e;
+}
 h1, .h1 {
   font-size: 80px;
 }
@@ -84,7 +71,7 @@ h6, .h6 {
 /* Button style */
 .btn {
   font-size: 22px;
-  font-family: "Playfair Display", serif;
+  font-family: 'Titillium Web', sans-serif;
   text-transform: capitalize;
   padding: 16px 44px;
   border-radius: 5px;
@@ -210,7 +197,8 @@ a:hover {
 }
 .section-title {
   margin-bottom: 80px;
-  font-family: "Playfair Display", serif;
+  font-family: 'Titillium Web', sans-serif;
+
 }
 
 .bg-cover {
@@ -319,11 +307,15 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: "Playfair Display", serif !important;
+  /* font-family: "Playfair Display", serif !important; */
+  font-family: 'Titillium Web', sans-serif;
+
 }
 
 .font-tertiary {
-  font-family: "Playfair Display", serif !important;
+  /* font-family: "Playfair Display", serif !important; */
+  font-family: 'Titillium Web', sans-serif;
+
 }
 
 .shadow {
@@ -425,10 +417,11 @@ textarea.form-control {
     background: #41228e;
   }
 }
-
+.clickable-a{
+    color:white
+}
 .navbar .nav-item .nav-link {
-  font-family: "Playfair Display", serif;
-  text-transform: uppercase;
+  font-family: 'Titillium Web', sans-serif;
   padding: 15px;
 }
 .navbar .nav-item.active {
@@ -728,7 +721,8 @@ blockquote {
   margin-bottom: 20px;
 }
 .content strong {
-  font-family: "Playfair Display", serif;
+  font-family: 'Titillium Web', sans-serif;
+
   font-size: 22px;
   font-weight: normal;
   color: #000;

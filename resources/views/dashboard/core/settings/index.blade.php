@@ -11,14 +11,44 @@
         @method('PUT')
         @csrf
         <ul class="nav nav-tabs nav-tabs-highlight">
-            <li class="nav-item"><a href="#highlight-tab1" class="nav-link active" data-toggle="tab">Home</a></li>
-            <li class="nav-item"><a href="#highlight-tab2" class="nav-link active-danger" data-toggle="tab">Personal</a></li>
+            <li class="nav-item"><a href="#highlight-tab" class="nav-link active" data-toggle="tab">General</a></li>
+            <li class="nav-item"><a href="#highlight-tab0" class="nav-link" data-toggle="tab">SEO</a></li>
+            <li class="nav-item"><a href="#highlight-tab1" class="nav-link" data-toggle="tab">Home</a></li>
+            <li class="nav-item"><a href="#highlight-tab2" class="nav-link" data-toggle="tab">Personal</a></li>
             <li class="nav-item"><a href="#highlight-tab3" class="nav-link" data-toggle="tab">Contact Info</a></li>
             <li class="nav-item"><a href="#highlight-tab4" class="nav-link" data-toggle="tab">Social</a></li>
             <li class="nav-item"><a href="#highlight-tab5" class="nav-link" data-toggle="tab">Sections</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane fade show active" id="highlight-tab1">
+            <div class="tab-pane fade show active" id="highlight-tab">
+                <div class="col-sm-12">
+                    <label><h4>General Settings</h4></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-sm-12">
+                            <x-form.image name="site_logo" :value="$generalSettings->site_logo" :label="__('Site Logo')"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <x-form.input name='site_title' label="{{__('Site Title')}}" :value="$generalSettings->site_title"/>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="highlight-tab0">
+                <div class="col-sm-12">
+                    <label><h4>SEO Settings</h4></label>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <x-form.input name='site_keywords' label="{{__('Type Keyword Separated With ,')}}" :value="$seoSettings->site_keywords"/>
+                    </div>
+                    <div class="col-md-12">
+                        <x-form.input type="textarea" name='site_description' label="{{__('Site Description')}}" :value="$seoSettings->site_description"/>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="highlight-tab1">
                 <div class="col-sm-12">
                     <label><h4>Home Settings</h4></label>
                 </div>

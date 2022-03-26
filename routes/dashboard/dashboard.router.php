@@ -1,12 +1,9 @@
 <?php
 
 use App\Domain\Core\Enums\RolesEnum;
-use App\Support\Actions\ChangeLocalizationAction;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => config('custom.dashboard.prefix'), 'as' => 'dashboard.'], function () {
-    Route::get('lang/{locale}', [ChangeLocalizationAction::class, '__invoke'])->name('lang');
-
     require __DIR__.'/auth.routes.php';
 
     Route::group(['middleware' => ['auth', 'role:'.RolesEnum::admin()]], static function () {

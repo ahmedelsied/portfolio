@@ -19,6 +19,6 @@ class PageController extends Controller
 
     protected function rules()
     {
-        return ['body.*' => 'required'];
+        return ['body' => 'required'];
     }
 }

@@ -34,7 +34,7 @@ class Blog extends Model implements HasMedia
 
     public static function cacheData()
     {
-        Cache::forever('posts',Blog::with('media')->latest()->limit(3)->get());
+        Cache::forever('posts',Blog::select(['id','title','description'])->with('media')->latest()->limit(3)->get());
         return Cache::get('posts');
     }
 

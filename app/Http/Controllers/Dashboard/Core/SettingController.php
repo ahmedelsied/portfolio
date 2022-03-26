@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Dashboard\Core;
 
 use App\Domain\Core\Models\TempMedia;
 use App\Domain\Core\Settings\ContactInfoSettings;
+use App\Domain\Core\Settings\GeneralSettings;
 use App\Domain\Core\Settings\HomeSettings;
 use App\Domain\Core\Settings\PersonalSettings;
 use App\Domain\Core\Settings\SectionsSettings;
+use App\Domain\Core\Settings\SEOSettings;
 use App\Domain\Core\Settings\SocialSettings;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\SettingRequest;
@@ -17,14 +19,18 @@ use Arr;
         private $validated;
 
         public function index(
+            GeneralSettings $generalSettings,
+            SEOSettings $seoSettings,
             HomeSettings $homeSettings,
             PersonalSettings $personalSettings,
             ContactInfoSettings $contactInfoSettings,
             SocialSettings $socialSettings,
-            SectionsSettings $sectionsSettings
+            SectionsSettings $sectionsSettings,
             ) {
 
             return view('dashboard.core.settings.index')->with([
+                'generalSettings' => $generalSettings,
+                'seoSettings' => $seoSettings,
                 'homeSettings' => $homeSettings,
                 'personalSettings' => $personalSettings,
                 'contactInfoSettings' => $contactInfoSettings,
@@ -36,14 +42,36 @@ use Arr;
         public function update(SettingRequest $request)
         {
             $this->validated = $request->validated();
-            $this->updateHomeSetting()
-                 ->updatePersonalSetting()
-                 ->updateContactInfoSetting()
-                 ->updateSocialSetting()
-                 ->updateSectionsSetting();
+            $this->updateGeneralSetting()
+                ->updateSEOSetting()
+                ->updateHomeSetting()
+                ->updatePersonalSetting()
+                ->updateContactInfoSetting()
+                ->updateSocialSetting()
+                ->updateSectionsSetting();
+
             toast(__('Settings updated successfully'), 'success');
 
             return redirect()->back();
+        }
+
+        private function updateGeneralSetting()
+        {
+            $generalSettings = app(GeneralSettings::class);
+            $generalSettings->site_title = $this->validated['site_title'];
+            if(isset($this->validated['site_logo']))
+            $generalSettings->site_logo = $this->uploadImage('site_logo',$this->validated['site_logo']);
+            $generalSettings->save();
+            return $this;
+        }
+
+        private function updateSEOSetting()
+        {
+            $seoSettings = app(SEOSettings::class);
+            $seoSettings->site_description = $this->validated['site_description'];
+            $seoSettings->site_keywords  = $this->validated['site_keywords'];
+            $seoSettings->save();
+            return $this;
         }
 
         private function updateHomeSetting()

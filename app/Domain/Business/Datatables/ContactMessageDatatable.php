@@ -12,7 +12,7 @@ class ContactMessageDatatable extends BaseDatatable
 
     public function query(): Builder
     {
-        return ContactMessage::query();
+        return ContactMessage::orderBy('id','DESC');
     }
 
     protected function getColumns(): array
